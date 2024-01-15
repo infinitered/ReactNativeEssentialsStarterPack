@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e 
+
+react-native-asset
+
+bundle
+
+# Install pods
+(cd ios && bundle exec pod repo update &&  bundle exec pod install)

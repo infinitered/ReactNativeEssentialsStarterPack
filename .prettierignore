@@ -1,0 +1,3 @@
+shared/theme/tokens/figmaVariables.json
+msw/mocks/*.json
+node_modules
