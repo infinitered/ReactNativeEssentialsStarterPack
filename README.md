@@ -20,25 +20,19 @@ Welcome to the React Native Essentials Starter Pack! This repository is a setup 
 
 For the full instructions on how to setup your environment for React Native development, head on over to [Environment Setup](./docs/guide-environment-setup.md).
 
-1. Verify environment status:
-
-```bash
-./scripts/setup/verify-environment
-```
-
-2. Run the project setup script:
+1. Run the project setup script:
 
 ```bash
 yarn setup
 ```
 
-3. Start the metro bundler:
+2. Start the metro bundler:
 
 ```bash
 yarn start
 ```
 
-4. Build in dev mode:
+3. Build in dev mode:
 
 - Android: by typing `a` in metro, or in a new shell instance:
 
@@ -52,7 +46,7 @@ yarn start
   yarn ios
   ```
 
-5. Build for your device:
+4. Build for your device:
 
 - [Android link](./docs/simulators-setup.md#yarn-android)
 - [iOS link](./docs/simulators-setup.md#launching-a-specific-simulator)
