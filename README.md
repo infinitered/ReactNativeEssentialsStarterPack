@@ -18,7 +18,7 @@ Welcome to the React Native Essentials Starter Pack! This repository is a setup 
 
 ## Quick Start
 
-For the full instructions on how to setup your environment for React Native development, head on over to [Environment Setup](./docs/guide-environment-setup.md).
+For the full instructions on how to setup your environment for React Native development, head on over to [Environment Setup](./docs/environment-setup-guide.md).
 
 1. Run the project setup script:
 
