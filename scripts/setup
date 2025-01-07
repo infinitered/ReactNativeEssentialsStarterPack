@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e 
+
+./scripts/verify-environment
+
+yarn
+
+npx pod-install
