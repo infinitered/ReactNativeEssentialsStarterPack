@@ -55,8 +55,8 @@ const designTokens = deepmerge.all(Object.values(figmaVariablesCollections))
 
 function isSemanticToken(token) {
   return (
-    token.original.extensions.ReactNativeEssentialsStarterPack.collectionName ===
-    'semantics'
+    token.original.extensions.ReactNativeEssentialsStarterPack
+      .collectionName === 'semantics'
   )
 }
 
