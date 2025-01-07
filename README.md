@@ -26,19 +26,13 @@ For the full instructions on how to setup your environment for React Native deve
 ./scripts/setup
 ```
 
-2. (iOS) Install Pods
-
-```bash
-npx pod-install
-```
-
-3. Start the metro bundler:
+2. Start the metro bundler:
 
 ```bash
 yarn start
 ```
 
-4. Build in dev mode:
+3. Build in dev mode:
 
 - Android: by typing `a` in metro, or in a new shell instance:
 
@@ -52,7 +46,7 @@ yarn start
   yarn ios
   ```
 
-5. Build for your device:
+4. Build for your device:
 
 - [Android link](./docs/simulators-setup.md#yarn-android)
 - [iOS link](./docs/simulators-setup.md#launching-a-specific-simulator)

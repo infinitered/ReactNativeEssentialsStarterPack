@@ -145,12 +145,12 @@ asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 asdf list-all ruby
 
 # next, install ruby
-asdf install ruby 3.2.2
+asdf install ruby 3.3.0
 # or, if within a dir with a .tool-versions file
 asdf install
 
 # optional, set global ruby version and confirm installation
-asdf global ruby 3.2.2
+asdf global ruby 3.3.0
 ruby --version
 ```
 
@@ -168,20 +168,37 @@ asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf list-all nodejs
 
 # install node LTS
-asdf install nodejs latest
+asdf install nodejs 22.12.0
 # or, if within a dir with a .tool-versions file
 asdf install
 
 # optional, set global node version and confirm installation
-asdf global nodejs latest
+asdf global nodejs 22.12.0
 node --version
 ```
 
 Note: As mentioned in the [asdf](#asdf) section, if you want different tools in your editor to work, you're going to need at least some version of node to be set globally on your system.
 
+Note: As of Jan 2025, running LTS versions of node will most likely show a `punnycode` warning. This is a known issue and can be ignored. Untill all packages are updated to not reference this deprecated module, this warning will keep popping up.
+
 ### Yarn Version 4
 
 **Yarn** will be used to manage workspaces and node dependencies on the project. There are a few different ways to install yarn. These behave differently when it comes to caching globally installed packages.
+
+Note: Yarn 4 is recommended to be installed on a per-project basis and is usually commited to the project's repository. Before continuing, check if you already have a `.yarn` directory in the project root. If you do, you're all set. You can confirm the version by running `yarn --version`.
+
+#### via **npm/corepack**
+
+Corepack is a tool shipped by default with recent versions of Node.js that allows to manage Yarn by project.
+
+```bash
+# Enable Corepack
+corepack enable
+
+# Install yarn version 4.x.x
+yarn set version stable
+yarn --version
+```
 
 #### via **asdf**
 
@@ -206,22 +223,9 @@ yarn --version
 
 Note: This method requires gpg and tar for certificate validation. You can install them with [brew](#brew).
 
-#### via **npm/corepack**
-
-Corepack is a tool shipped by default with Node.js that allows to manage Yarn by project.
-
-```bash
-# Enable Corepack
-corepack enable
-
-# Install yarn version 4.x.x
-yarn set version stable
-yarn --version
-```
-
 ### Java
 
-This is needed for Android applications and gradle build steps. React Native setup instructions recommend JDK 11.
+This is needed for Android applications and gradle build steps. React Native setup instructions recommend JDK 17.
 
 ```bash
 # add the asdf plugin
@@ -231,7 +235,7 @@ asdf plugin-add java https://github.com/halcyon/asdf-java.git
 asdf list-all java
 
 # install java
-asdf install java zulu-17.46.19
+asdf install java zulu-17.54.21
 # or, if within a dir with a .tool-versions file
 asdf install
 
@@ -242,7 +246,7 @@ echo '. ~/.asdf/plugins/java/set-java-home.zsh' >> ~/.zshrc
 echo "java_macos_integration_enable = yes" >> ~/.asdfrc
 
 # optional, set global java version and confirm installation
-asdf global java zulu-17.46.19
+asdf global java zulu-17.54.21
 java --version
 ```
 
@@ -304,12 +308,13 @@ Create a `./vscode/settings.json` file. Here you can customize editor behavior f
   ```
 
 Note: Keep in mind, the setting to run the auto-fix for the linter will also run prettier as part of eslint in addition to the standalone prettier
+Note: After any changes to eslint configuration, it's recommended to restart the ESLint server and the extension host by running `ESLint: Restart ESLint Server` and `Developer: Extension Host` and from the command palette.
 
 ### XCode
 
 **Xcode** will be used to build/run the iOS native side of the React Native application. It will also handle things like code-signing, asset management, simulators, and in some cases debugging.
 
-To install Xcode, head over to the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and download the latest available version (usually dependent on OS version). It's recommended to upgrade the OS to the latest in order to have the latest Xcode. But first, check with the team to see what everybody is on. As of 05-31-23, the recommended version is 14.3.
+To install Xcode, head over to the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and download the latest available version (usually dependent on OS version). It's recommended to upgrade the OS to the latest in order to have the latest Xcode. But first, check with the team to see what everybody is on. As of 01-07-24, the recommended version is 16.x.
 
 #### Command Line Tools
 
@@ -376,12 +381,12 @@ On the Welcome screen, click on `More Actions -> SDK Manager`. It should look so
 
 <img src="./images/sdk-manager.png" width="500" />
 
-Under Android 13 (Tiramisu), select the following (be sure to click on `Show Package Details` to be able to see the specific items listed below):
+Under Android 15 (VanillaIceCream), select the following (be sure to click on `Show Package Details` to be able to see the specific items listed below):
 
-- Android SDK Platform 33
+- Android SDK Platform 35
 - Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image or (for Apple M1 Silicon) Google APIs ARM 64 v8a System Image
 
-Under SDK Tools, make sure Android SDK Build Tools v34.0.0 and v33.0.X are selected.
+Under SDK Tools, make sure Android SDK Build Tools v35.0.0 is selected.
 
 Click "OK" to install.
 
@@ -404,7 +409,7 @@ cd ~/Dev/ReactNativeEssentialsStarterPack
 Run the project setup script:
 
 ```bash
-yarn setup
+./scripts/setup
 ```
 
 Start the metro bundler:
