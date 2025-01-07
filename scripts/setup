@@ -4,3 +4,5 @@ set -e
 ./scripts/verify-environment
 
 yarn
+
+npx pod-install
